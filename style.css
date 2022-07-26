@@ -1,0 +1,49 @@
+:root {
+  /* colors */
+  --main-background-color: #7d9d9c;
+  --dark-text-color: #5a7376;
+  --purple-tone-color: #a390a9;
+  --red-bright: #ff9999;
+  --red-dark: #4c0000;
+  --player-area-background-color: #f0ebe3;
+
+  /* fonts */
+  --main-font-type: "Gantari";
+  --font-fredericka-the-great: "Fredericka the Great";
+  --font-header: "Rubik Moonrocks";
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--main-font-type);
+  text-align: center;
+  background-color: var(--main-background-color);
+  color: var(--dark-text-color);
+}
+
+body {
+  font-family: var(--font-fredericka-the-great);
+}
+
+h1 {
+  font-family: var(--font-header);
+  font-size: 5rem;
+  color: var(--dark-text-color);
+}
+
+h3 {
+  color: chartreuse;
+}
+
+footer {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 0;
+  width: 100%;
+  height: 5vh; /* Height of the footer */
+  background: var(--player-area-background-color);
+}
