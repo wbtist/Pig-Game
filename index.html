@@ -28,19 +28,20 @@
         <a href="#">upgrade your browser</a> to improve your experience.
       </p>
     <![endif]-->
-    <header class="header">
-      <h1 class="header-text">Pig Game</h1>
-    </header>
+
     <section #main-section>
-      <div id="buttons" class="btn">
-        <button id="newGame-button" type="submit">New Game</button>
-        <button id="dice-button" type="submit">DICE</button>
-        <button id="hold-button" type="submit">HOLD</button>
+      <header class="header">
+        <h1 class="header-text">Pig Game</h1>
+      </header>
+      <div id="buttons-wrapper"">
+        <button id="newGame-button" class="btn" type="submit">New Game</button>
+        <button id="dice-button" class="btn" type="submit">DICE</button>
+        <button id="hold-button" class="btn" type="submit">HOLD</button>
       </div>
-      <div class="dice">
+      <div class="dice-image-wrapper">
         <img class="dice-image" src="img/dice--0.png" alt="" />
       </div>
-      <div class="wrapper">
+      <div class="players-wrapper">
         <div id="player--0-container" class="player-container">
           <h2>Player-1</h2>
           <h3>SCORE</h3>
@@ -56,12 +57,13 @@
           <h3 class="player--1-turn">0</h3>
         </div>
       </div>
+      <div class="markup-image">
+        <h3>------- START OF MARKUP IMAGE -------</h3>
+        <img src="img/pig game prototype.png" width="25%" alt="" />
+        <h3>------- END OF MARKUP IMAGE -------</h3>
+      </div>
     </section>
-    <div class="markup-image">
-      <h3>------- START OF MARKUP IMAGE -------</h3>
-      <img src="img/pig game prototype.png" width="25%" alt="" />
-      <h3>------- END OF MARKUP IMAGE -------</h3>
-    </div>
+
     <footer class="footer">Made by Istvan Toth in the UK</footer>
 
     <script src="script.js" async defer></script>

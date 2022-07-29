@@ -1,16 +1,20 @@
 :root {
   /* colors */
-  --main-background-color: #7d9d9c;
-  --dark-text-color: #5a7376;
+  --main-background-color: #2d2424;
+  --dark-text-color: #b85c38;
   --purple-tone-color: #a390a9;
   --red-bright: #ff9999;
   --red-dark: #4c0000;
-  --player-area-background-color: #f0ebe3;
+  --player-area-background-color: #e0c097;
 
   /* fonts */
   --main-font-type: "Gantari";
   --font-fredericka-the-great: "Fredericka the Great";
   --font-header: "Rubik Moonrocks";
+
+  /* Buttons */
+  --button-backgroud: #a5c9ca;
+  --button-font-color: #395b64;
 }
 
 * {
@@ -25,6 +29,8 @@
 
 body {
   font-family: var(--font-fredericka-the-great);
+  display: flex;
+  flex-direction: column;
 }
 
 .player-container {
@@ -38,27 +44,58 @@ h1 {
   color: var(--dark-text-color);
 }
 
-h3 {
-  color: chartreuse;
+.player-container * {
+  background-color: var(--player-area-background-color);
+  padding: 0 5vw;
 }
 
-footer {
-  position: absolute;
+/* player-container-items */
+.player-container * {
+  background-color: var(--player-area-background-color);
+}
+
+.players-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  bottom: 0;
-  width: 100%;
-  height: 5vh; /* Height of the footer */
-  background: var(--player-area-background-color);
 }
 
-.wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.players-wrapper h2 {
+  margin-top: 3vh;
+  padding: 4vh 0;
+}
+.players-wrapper h3:nth-child(3),
+.players-wrapper h3:nth-child(5) {
+  padding-bottom: 8vh;
 }
 
 .dice-image {
   width: 8vw;
+  height: auto;
+}
+
+.btn {
+  margin: 2%;
+  padding: 1%;
+  background-color: var(--button-backgroud);
+  color: var(--button-font-color);
+  font-size: 1.4rem;
+  border: none;
+}
+
+.btn:hover {
+  background-color: var(--button-font-color);
+  color: var(--button-backgroud);
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: var(--player-area-background-color);
 }
