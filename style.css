@@ -47,3 +47,14 @@ footer {
   height: 5vh; /* Height of the footer */
   background: var(--player-area-background-color);
 }
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.player-container {
+  width: 40vw;
+  height: auto;
+}
