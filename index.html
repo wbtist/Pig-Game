@@ -32,11 +32,11 @@
       </p>
     <![endif]-->
     <!-- Bootstrap script -->
-    <div id="header-container" class="container-fluid text-center">
+    <div id="header-container" class="container-fluid text-center d-flex flex-column min-vh-100">
       <div class="row align-items-center justify-content-center">
         <div class="col col-sm-12"><h1>🐖🐖🐖 PIG GAME 🐖🐖🐖</h1></div>
         <div class="row align-items-center justify-content-center">
-          <div class="col col-sm-1">
+          <div class="col col-sm-2">
             <button
               type="button"
               id="dice-button"
@@ -45,7 +45,7 @@
               DICE
             </button>
           </div>
-          <div class="col col-sm-1">
+          <div class="col col-sm-2">
             <button
               type="button"
               id="hold-button"
@@ -54,7 +54,7 @@
               HOLD
             </button>
           </div>
-          <div class="col col-sm-1">
+          <div class="col col-sm-2">
             <button
               type="button"
               id="newGame-button"
@@ -77,7 +77,7 @@
         
       
       <div id="players-container" class="container-fluid px-4 text-center">
-        <div class="row align-items-center">
+        <div class="row align-items-center player-name-row">
           <div class="col col-sm-6"><h2>Player 1</h2></div>
           <div class="col col-sm-6"><h2>Player 2</h2></div>
         </div>
@@ -85,7 +85,7 @@
           <div class="col col-sm-6"><h2>SCORE</h2></div>
           <div class="col col-sm-6"><h2>SCORE</h2></div>
         </div>
-        <div class="row align-items-center">
+        <div class="row align-items-center scores-row">
           <div class="col col-sm-6"><h2 id="player--0-score">0</h2></div>
           <div class="col col-sm-6"><h2 id="player--1-score">0</h2></div>
         </div>
@@ -99,6 +99,10 @@
         </div>
       </div>
     </div>
+  <div class="container-fluid mt-auto">
+    <div class="row align-items-center"><div class="col col-sm-12"></div><footer class="footer"><h3>Made with 💗 and 😰 by Istvan Toth ➡️ <a href="https://github.com/wbtist">GitHub</a></h3></footer></div>
+  </div>
+  
 
     <!-- Bootstrap script -->
     <script

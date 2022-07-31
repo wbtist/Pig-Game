@@ -4,6 +4,7 @@
   --dark-text-color: #a6d1e6;
   --purple-tone-color: #a390a9;
   --red-bright: #ff9999;
+  --pig-color: #ff8585;
   --red-dark: #4c0000;
   --player-area-background-color: #e0c097;
 
@@ -40,13 +41,13 @@ h1 {
 }
 
 .winner h3 {
+  background-color: var(--pig-color);
   padding-top: 10vh;
   padding-bottom: 10vh;
   margin-top: 10vh;
   margin-bottom: 10vh;
   margin-left: 30%;
   margin-right: 30%;
-  background-color: #607eaa;
   color: #eae3d2;
   font-size: 3rem;
   border: 5px solid var(--red-bright);
@@ -64,7 +65,28 @@ h1 {
     -11px -9px 11px 0px #fffa17, -11px -9px 11px 0px #fffa17,
     5px 5px 15px 5px rgba(0, 0, 0, 0);
 }
+.player-name-row h2 {
+  font-size: 3rem;
+}
+
+.player-name-row,
+.scores-row {
+  margin-bottom: 5vh;
+}
 
 .hidden {
   display: none;
+}
+
+.footer {
+  background-color: var(--dark-text-color);
+}
+
+.footer a,
+h3 {
+  padding-top: 5px;
+  font-family: var(--main-font-type);
+  background-color: var(--dark-text-color);
+  color: var(--main-background-color);
+  font-size: 1rem;
 }
