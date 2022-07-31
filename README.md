@@ -1,4 +1,4 @@
-# Pig Game by Istvan Toth
+# Pig Game by Istvan Toth (wbtist)
 
 ## A classic two player game
 
