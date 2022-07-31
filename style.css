@@ -1,7 +1,7 @@
 :root {
   /* colors */
-  --main-background-color: #2d2424;
-  --dark-text-color: #b85c38;
+  --main-background-color: #2c3333;
+  --dark-text-color: #a6d1e6;
   --purple-tone-color: #a390a9;
   --red-bright: #ff9999;
   --red-dark: #4c0000;
@@ -11,10 +11,6 @@
   --main-font-type: "Gantari";
   --font-fredericka-the-great: "Fredericka the Great";
   --font-header: "Rubik Moonrocks";
-
-  /* Buttons */
-  --button-backgroud: #a5c9ca;
-  --button-font-color: #395b64;
 }
 
 * {
@@ -25,13 +21,48 @@
   color: var(--dark-text-color);
 }
 
+h1 {
+  font-size: 3rem;
+}
+
 .dice-image {
   width: 10vw;
+  margin-top: 5vh;
 }
 
 .btn {
-  padding: 8%;
   margin-top: 18%;
+  font-size: 1.5rem;
+}
+
+#players-container {
+  margin-top: 5vh;
+}
+
+.winner h3 {
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+  margin-left: 30%;
+  margin-right: 30%;
+  background-color: #607eaa;
+  color: #eae3d2;
+  font-size: 3rem;
+  border: 5px solid var(--red-bright);
+  border-radius: 50px;
+  -webkit-box-shadow: 4px -4px 15px 0px #ff1f1f, 12px -11px 7px 0px #ff9376,
+    20px -5px 7px 0px #ffe264, 20px 6px 7px 0px #f6ff33,
+    13px 12px 17px 0px #ff9527, 2px 17px 17px 0px #ff0000,
+    -9px 21px 18px 0px #fff212, -9px 6px 11px 0px #ff0808,
+    -11px -9px 11px 0px #fffa17, -11px -9px 11px 0px #fffa17,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: 4px -4px 15px 0px #ff1f1f, 12px -11px 7px 0px #ff9376,
+    20px -5px 7px 0px #ffe264, 20px 6px 7px 0px #f6ff33,
+    13px 12px 17px 0px #ff9527, 2px 17px 17px 0px #ff0000,
+    -9px 21px 18px 0px #fff212, -9px 6px 11px 0px #ff0808,
+    -11px -9px 11px 0px #fffa17, -11px -9px 11px 0px #fffa17,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
 }
 
 .hidden {
