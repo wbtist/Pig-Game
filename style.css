@@ -29,6 +29,11 @@
   width: 10vw;
 }
 
+.btn {
+  padding: 8%;
+  margin-top: 18%;
+}
+
 .hidden {
-  visibility: hidden;
+  display: none;
 }
