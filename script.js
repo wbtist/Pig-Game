@@ -1,4 +1,52 @@
 'use scrict'
+// Scores
+const player_0_htmlScore = document.querySelector('.player--0-score');
+const player_1_htmlScore = document.querySelector('.player--1-score');
+const player_0_htmlturn = document.querySelector('.player--0-turn');
+const player_1_htmlturn = document.querySelector('.player--1-turn');
+let scores = [];
+let currentScore;
+
+// Buttons
+const new_Game_Button = document.querySelector('#newGame-button');
+const dice_image = document.querySelector('.dice-image');
+const dice_Button = document.querySelector('#dice-button');
+const hold_Button = document.querySelector('#hold-button');
+
+
+console.log(dice_image);
+
+function setDefaults() {
+  currentScore = 0;
+  scores[0] = 0;
+  scores[1] = 0;
+  dice_image.classList.add('hidden');
+  player_0_htmlScore.textContent = 0;
+  player_0_htmlturn.textContent = 0;
+  player_1_htmlScore.textContent = 0;
+  player_1_htmlturn.textContent = 0;
+};
+setDefaults();
+
+new_Game_Button.addEventListener('click', () => {
+  setDefaults();
+});
+
+dice_Button.addEventListener('click', () => {
+  const dice_Random_Number = Math.trunc(Math.random() * (7 - 1) + 1);
+  dice_image.src = `img/dice--${dice_Random_Number}.png`;
+  dice_image.classList.remove('hidden');
+  currentScore += dice_Random_Number;
+  player_0_htmlturn.textContent = currentScore;
+
+})
+
+hold_Button.addEventListener('click', () => {
+
+})
+
+
+
 
 /* Declaring const variables*/
 /* Declaring let variables*/
