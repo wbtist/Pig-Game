@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Pig Game</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Google fonts -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Rampart+One|Bangers|Gantari|Rubik+Moonrocks|Fredericka+the+Great|"
+    />
+
+    <!-- Font Awesome -->
+
+    <!-- Main Styesheet -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+
+    <section #main-section>
+      <header class="header">
+        <h1 class="header-text">Pig Game</h1>
+      </header>
+      <div id="buttons-wrapper">
+        <button id="newGame-button" class="btn" type="submit">New Game</button>
+        <button id="dice-button" class="btn" type="submit">DICE</button>
+        <button id="hold-button" class="btn" type="submit">HOLD</button>
+      </div>
+      <div class="dice-image-wrapper">
+        <img class="dice-image" src="img/dice--0.png" alt="" />
+      </div>
+      <div class="players-wrapper">
+        <div id="player--0-container" class="player-container">
+          <h2>Player-1</h2>
+          <h3>SCORE</h3>
+          <h3 class="player--0-score">0</h3>
+          <h3>TURN</h3>
+          <h3 class="player--0-turn">0</h3>
+        </div>
+        <div id="player--1-container" class="player-container">
+          <h2>Player-2</h2>
+          <h3>SCORE</h3>
+          <h3 class="player--1-score">0</h3>
+          <h3>TURN</h3>
+          <h3 class="player--1-turn">0</h3>
+        </div>
+      </div>
+      <!-- <div class="markup-image">
+        <h3>------- START OF MARKUP IMAGE -------</h3>
+        <img src="img/pig game prototype.png" width="25%" alt="" />
+        <h3>------- END OF MARKUP IMAGE -------</h3>
+      </div> -->
+    </section>
+
+    <footer class="footer">Made by Istvan Toth in the UK</footer>
+
+    <script src="script.js" async defer></script>
+  </body>
+</html>

@@ -1,10 +1,9 @@
 'use scrict'
-
 // Scores
-const player_0_htmlScore = document.querySelector('.player--0-score');
-const player_1_htmlScore = document.querySelector('.player--1-score');
-const player_0_htmlturn = document.querySelector('.player--0-turn');
-const player_1_htmlturn = document.querySelector('.player--1-turn');
+const player_0_htmlScore = document.querySelector('#player--0-score');
+const player_1_htmlScore = document.querySelector('#player--1-score');
+const player_0_htmlturn = document.querySelector('#player--0-turn');
+const player_1_htmlturn = document.querySelector('#player--1-turn');
 let scores = [0, 0];
 let currentScore;
 // Current player
@@ -41,18 +40,16 @@ dice_Button.addEventListener('click', () => {
   dice_image.src = `img/dice--${dice_Random_Number}.png`;
   dice_image.classList.remove('hidden');
 
-
   if (dice_Random_Number !== 1) {
     currentScore += dice_Random_Number;
-    document.querySelector(`.player--${currentPlayer}-turn`).textContent = currentScore;
+    document.querySelector(`#player--${currentPlayer}-turn`).textContent = currentScore;
 
   } else {
-    document.querySelector(`.player--${currentPlayer}-turn`).textContent = 0;
+    document.querySelector(`#player--${currentPlayer}-turn`).textContent = 0;
     // Switch players
     switchPlayers();
     currentScore = 0;
   };
-
 
 });
 
@@ -60,11 +57,17 @@ hold_Button.addEventListener('click', () => {
   // Add current player current score to score.
   scores[currentPlayer] += currentScore;
   // Display the score
-  document.querySelector(`.player--${currentPlayer}-score`).textContent = scores[currentPlayer];
+  document.querySelector(`#player--${currentPlayer}-score`).textContent = scores[currentPlayer];
   // Clear turn value
-  document.querySelector(`.player--${currentPlayer}-turn`).textContent = 0;
-  switchPlayers();
-  currentScore = 0;
+  document.querySelector(`#player--${currentPlayer}-turn`).textContent = 0;
+  if (scores[currentPlayer] >= 10) {
+    alert(`Hurray Player-${currentPlayer} win!`);
+    setDefaults();
+  } else {
+    switchPlayers();
+    currentScore = 0;
+  };
+
 
 });
 
