@@ -1,4 +1,13 @@
 'use scrict'
+
+// TODO: Option to change player name
+// TODO: Entering player names using <input> field insted of prompts
+// TODO: Highlight active player (.player-highlighted)
+// TODO: Refactor css classnames for better readibility
+// TODO: Add links to my other games later
+
+
+
 // Scores
 const player_0_htmlScore = document.querySelector('#player--0-score');
 const player_1_htmlScore = document.querySelector('#player--1-score');
@@ -15,9 +24,16 @@ const dice_Button = document.querySelector('#dice-button');
 const hold_Button = document.querySelector('#hold-button');
 // Dice image
 const dice_image = document.querySelector('.dice-image');
+// Player names
+let player_0_Name, player_1_Name;
+const player_0_Name_Display = document.querySelector('.player--0-name');
+const player_1_Name_Display = document.querySelector('.player--1-name');
+let playerNameArray = ['Istvan', 'Anita'];
 
 //* Setting up game defaults
 function setDefaults() {
+  player_0_Name_Display.textContent = playerNameArray[0];
+  player_1_Name_Display.textContent = playerNameArray[1];
   currentPlayer = 0;
   currentScore = 0;
   scores[0] = 0;
@@ -49,6 +65,8 @@ dice_Button.addEventListener('click', () => {
   } else {
     document.querySelector(`#player--${currentPlayer}-turn`).textContent = 0;
     // Switch players
+
+    // document.querySelector(`player--${currentPlayer}-name`).classList.toggle('player-highlighted');
     switchPlayers();
     currentScore = 0;
   };
@@ -64,10 +82,8 @@ hold_Button.addEventListener('click', () => {
   document.querySelector(`#player--${currentPlayer}-turn`).textContent = 0;
   if (scores[currentPlayer] >= 100) {
     dice_image.classList.add('hidden');
-    win_Message.textContent = `🏆 Player ${currentPlayer} win🏆`
+    win_Message.textContent = `🏆 Congratulations, ${playerNameArray[currentPlayer]} win🏆`
     win_Message.classList.remove('hidden');
-    // alert(`Hurray Player-${currentPlayer} win!`);
-
   } else {
     switchPlayers();
     currentScore = 0;

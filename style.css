@@ -6,11 +6,13 @@
   --red-bright: #ff9999;
   --pig-color: #ff8585;
   --red-dark: #4c0000;
-  --player-area-background-color: #e0c097;
+  --active-player: #e0c097;
 
   /* fonts */
   --main-font-type: "Gantari";
   --font-fredericka-the-great: "Fredericka the Great";
+  --font-bangers: "Bangers";
+  /* Dirt-like */
   --font-header: "Rubik Moonrocks";
 }
 
@@ -20,19 +22,35 @@
   box-sizing: border-box;
   background-color: var(--main-background-color);
   color: var(--dark-text-color);
+  text-align: center;
+}
+
+.accordion {
+  --bs-accordion-border-color: #2c3333;
+  color: #9facac;
+}
+
+.accordion-button {
+  background-color: var(--main-background-color);
+  color: #9facac;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #9facac;
+  background-color: var(--main-background-color);
 }
 
 h1 {
   font-size: 3rem;
+  font-family: var(--font-header);
 }
 
 .dice-image {
-  width: 10vw;
+  width: 5%;
   margin-top: 5vh;
 }
 
 .btn {
-  margin-top: 18%;
   font-size: 1.5rem;
 }
 
@@ -66,12 +84,22 @@ h1 {
     5px 5px 15px 5px rgba(0, 0, 0, 0);
 }
 .player-name-row h2 {
-  font-size: 3rem;
+  font-size: 2.5rem;
+}
+
+#names-container {
+  /* background-color: #9facac; */
 }
 
 .player-name-row,
 .scores-row {
   margin-bottom: 5vh;
+}
+
+.player-highlighted {
+  font-family: var(--font-bangers);
+  background-color: var(--pig-color);
+  color: var(--main-background-color);
 }
 
 .hidden {
