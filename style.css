@@ -25,29 +25,24 @@
   text-align: center;
 }
 
-.accordion {
-  --bs-accordion-border-color: #2c3333;
-  color: #9facac;
-}
-
-.accordion-button {
-  background-color: var(--main-background-color);
-  color: #9facac;
-}
-
-.accordion-button:not(.collapsed) {
-  color: #9facac;
-  background-color: var(--main-background-color);
-}
-
 h1 {
   font-size: 3rem;
   font-family: var(--font-header);
 }
 
 .dice-image {
-  width: 5%;
+  width: 10vw;
   margin-top: 5vh;
+  margin-bottom: 2vh;
+}
+
+input {
+  border: none;
+  background-color: transparent;
+  resize: none;
+  outline: none;
+  font-size: 2.2rem;
+  text-align: left;
 }
 
 .btn {
@@ -83,6 +78,7 @@ h1 {
     -11px -9px 11px 0px #fffa17, -11px -9px 11px 0px #fffa17,
     5px 5px 15px 5px rgba(0, 0, 0, 0);
 }
+
 .player-name-row h2 {
   font-size: 2.5rem;
 }
@@ -117,4 +113,13 @@ h3 {
   background-color: var(--dark-text-color);
   color: var(--main-background-color);
   font-size: 1rem;
+}
+
+.main-container {
+  min-height: 90vh;
+}
+
+.footer-container {
+  margin-top: auto;
+  min-height: 10vh;
 }

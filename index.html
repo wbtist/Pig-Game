@@ -10,7 +10,7 @@
     <title>🐖 Pig Game by Istvan Toth</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/x-icon" href="/img/pigGameIcon.ico">
+    <link rel="icon" type="image/x-icon" href="/img/pigGameIcon.ico" />
     <!-- Google fonts -->
     <link
       rel="stylesheet"
@@ -34,89 +34,100 @@
         <a href="#">upgrade your browser</a> to improve your experience.
       </p>
     <![endif]-->
-    <!-- Bootstrap script -->
-    <div id="names-container" class="container-fluid mt-auto">
+    <!-- Header Row -->
+    <div class="container-fluid main-container">
       <div class="row align-items-center justify-content-center">
         <div class="col col-sm-12"><h1>🐖🐖🐖 PIG GAME 🐖🐖🐖</h1></div>
       </div>
-      <div class="row align-items-center justify-content-center">
-        <div class="col col-sm-1">
-          <button><p>🎲</p></button>
-        </div>
-        <div class="col col-sm-4">
-          <h5>Enter Name For Player 1: </h5><button></button><input id="player-0-Name-Input-Field" type="text"><button></button>
-          <h5>Enter Name For Player 2: </h5><input id="player-1-Name-Input-Field" type="text">
-        </div>
-        <div class="col col-sm-1">
-          <button><p>✅</p></button>
-        </div>
-      </div>
-      
-    </div>
-    <div id="header-container" class="container-fluid text-center d-flex flex-column min-vh-100">
-      <!-- Header Row -->
-      <div class="row align-items-center justify-content-center">
-        <div class="col col-sm-12"><h1>🐖🐖🐖 PIG GAME 🐖🐖🐖</h1></div>
-      </div>
-      <!-- Accordion Row -->
-      <div class="row align-items-center justify-content-center">
-        <div class="col col-sm-8"><div class="accordion closed" id="accordionExample">
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="headingOne">
-              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    Game rules
-              </button>
-            </h2>
-                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    <strong>Pig (dice game).</strong> Players take turns to roll a single die as many times as they wish, adding all roll results to a running total, but losing their gained score for the turn if they roll a 1.
-                  </div>
-                </div>
+
+      <!-- Accordion Row for game rules -->
+      <!-- <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseTwo"
+              aria-expanded="false"
+              aria-controls="collapseTwo"
+            >
+              Accordion Item #2
+            </button>
+          </h2>
+          <div
+            id="collapseTwo"
+            class="accordion-collapse collapse"
+            aria-labelledby="headingTwo"
+            data-bs-parent="#accordionExample"
+          >
+            <div class="accordion-body">
+              <strong>This is the second item's accordion body.</strong> It is
+              hidden by default, until the collapse plugin adds the appropriate
+              classes that we use to style each element. These classes control
+              the overall appearance, as well as the showing and hiding via CSS
+              transitions. You can modify any of this with custom CSS or
+              overriding our default variables. It's also worth noting that just
+              about any HTML can go within the <code>.accordion-body</code>,
+              though the transition does limit overflow.
+            </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- Buttons Row -->
-        <div class="row align-items-center justify-content-center">
-          <div class="col col-sm-2">
-            <button
-              type="button"
-              id="dice-button"
-              class="btn btn-outline-success"
-            >
-              DICE
-            </button>
-          </div>
-          <div class="col col-sm-2">
-            <button
-              type="button"
-              id="hold-button"
-              class="btn btn-outline-warning"
-            >
-              HOLD
-            </button>
-          </div>
-          <div class="col col-sm-2">
-            <button
-              type="button"
-              id="newGame-button"
-              class="btn btn-outline-light"
-            >
-              NEW GAME
-            </button>
-          </div>
+      <div class="row align-items-center justify-content-center">
+        <div class="col col-sm-3">
+          <button
+            type="button"
+            id="dice-button"
+            class="btn btn-outline-success"
+          >
+            DICE
+          </button>
+        </div>
+        <div class="col col-sm-3">
+          <button
+            type="button"
+            id="hold-button"
+            class="btn btn-outline-warning"
+          >
+            HOLD
+          </button>
+        </div>
+        <div class="col col-sm-3">
+          <button
+            type="button"
+            id="newGame-button"
+            class="btn btn-outline-light"
+          >
+            NEW GAME
+          </button>
         </div>
       </div>
-      <div id="dice-image-container" class="container-fluid px-4 text-center">
-        <div class="row align-items-center justify-content-center">
-          <div class="col col-sm-12"><img class="dice-image" src="/img/dice--0.png" alt="" /></div>
+      <div class="row align-items-center justify-content-center">
+        <div class="col col-sm-4">
+          <img class="dice-image" src="/img/dice--0.png" alt="" />
         </div>
-        <div class="row align-items-center justify-content-center">
-          <div class="col col-sm-12 winner"><h3 class="win-message"></h3></div>
-        </div>
+      </div>
+      <div class="row align-items-center justify-content-center">
+        <div class="col col-sm-12 winner"><h3 class="win-message"></h3></div>
+      </div>
       <div id="players-container" class="container-fluid px-4 text-center">
         <div class="row align-items-center player-name-row">
-          <div class="col col-sm-6"><h2 class="playernames player--0-name">Player 1</h2></div>
-          <div class="col col-sm-6"><h2 class="playernames player--1-name">Player 2</h2></div>
+          <div class="col col-sm-6">
+            <input
+              class="playernames player--0-name"
+              type="text"
+              placeholder="Enter Player 1 Name"
+            />
+          </div>
+          <div class="col col-sm-6">
+            <input
+              class="playernames player--1-name"
+              type="text"
+              placeholder="Enter Player 2 Name"
+            />
+          </div>
         </div>
         <div class="row align-items-center">
           <div class="col col-sm-6"><h2>SCORE</h2></div>
@@ -136,14 +147,30 @@
         </div>
       </div>
     </div>
-    <div class="container-fluid mt-auto">
-      <div class="row align-items-center"><div class="col col-sm-12"></div><footer class="footer"><h3>Made with 💗 and 😰 by Istvan Toth ➡️ <a href="https://github.com/wbtist" target="_blank" rel="noopener noreferrer">GitHub</a></h3></footer></div>
+    <!-- Footer container -->
+    <div class="container-fluid mt-auto footer-container">
+      <div class="row align-items-center">
+        <div class="col col-sm-12"></div>
+        <footer class="footer">
+          <h3>
+            Made with 💗 and 😰 by Istvan Toth ➡️
+            <a
+              href="https://github.com/wbtist"
+              target="_blank"
+              rel="noopener noreferrer"
+              >GitHub</a
+            >
+          </h3>
+        </footer>
+      </div>
     </div>
-  
 
     <!-- Bootstrap script -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q   +mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+      integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+      crossorigin="anonymous"
+    ></script>
     <!-- Game logic -->
     <script src="script.js" async defer></script>
   </body>

@@ -7,7 +7,6 @@
 // TODO: Add links to my other games later
 
 
-
 // Scores
 const player_0_htmlScore = document.querySelector('#player--0-score');
 const player_1_htmlScore = document.querySelector('#player--1-score');
