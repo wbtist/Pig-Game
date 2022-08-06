@@ -24,10 +24,17 @@
   color: var(--dark-text-color);
   text-align: center;
 }
+/* TODO: Tidy Media queryes! */
+@media only screen and (max-width: 750px) {
+  h1 {
+    font-size: 1.4rem;
+  }
+}
 
-h1 {
-  font-size: 3rem;
-  font-family: var(--font-header);
+@media only screen and (min-width: 751px) {
+  h1 {
+    font-size: 3rem;
+  }
 }
 
 .dice-image {
@@ -35,14 +42,26 @@ h1 {
   margin-top: 5vh;
   margin-bottom: 2vh;
 }
+@media only screen and (max-width: 750px) {
+  input {
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+    font-size: 1rem;
+    text-align: center;
+  }
+}
 
-input {
-  border: none;
-  background-color: transparent;
-  resize: none;
-  outline: none;
-  font-size: 2.2rem;
-  text-align: left;
+@media only screen and (min-width: 750px) {
+  input {
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+    font-size: 2rem;
+    text-align: center;
+  }
 }
 
 .btn {
@@ -53,30 +72,72 @@ input {
   margin-top: 5vh;
 }
 
-.winner h3 {
-  background-color: var(--pig-color);
-  padding-top: 10vh;
-  padding-bottom: 10vh;
-  margin-top: 10vh;
-  margin-bottom: 10vh;
-  margin-left: 30%;
-  margin-right: 30%;
-  color: #eae3d2;
-  font-size: 3rem;
-  border: 5px solid var(--red-bright);
-  border-radius: 50px;
-  -webkit-box-shadow: 4px -4px 15px 0px #ff1f1f, 12px -11px 7px 0px #ff9376,
-    20px -5px 7px 0px #ffe264, 20px 6px 7px 0px #f6ff33,
-    13px 12px 17px 0px #ff9527, 2px 17px 17px 0px #ff0000,
-    -9px 21px 18px 0px #fff212, -9px 6px 11px 0px #ff0808,
-    -11px -9px 11px 0px #fffa17, -11px -9px 11px 0px #fffa17,
-    5px 5px 15px 5px rgba(0, 0, 0, 0);
-  box-shadow: 4px -4px 15px 0px #ff1f1f, 12px -11px 7px 0px #ff9376,
-    20px -5px 7px 0px #ffe264, 20px 6px 7px 0px #f6ff33,
-    13px 12px 17px 0px #ff9527, 2px 17px 17px 0px #ff0000,
-    -9px 21px 18px 0px #fff212, -9px 6px 11px 0px #ff0808,
-    -11px -9px 11px 0px #fffa17, -11px -9px 11px 0px #fffa17,
-    5px 5px 15px 5px rgba(0, 0, 0, 0);
+/* Winner message */
+/* On Mobile */
+@media only screen and (max-width: 750px) {
+  .winner h3 {
+    background-color: var(--pig-color);
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    margin-left: 20%;
+    margin-right: 20%;
+    color: #eae3d2;
+    font-size: 1rem;
+    border: 5px solid var(--red-bright);
+    border-radius: 50px;
+    -webkit-box-shadow: 4px -4px 15px 0px #ff1f1f, 12px -11px 7px 0px #ff9376,
+      20px -5px 7px 0px #ffe264, 20px 6px 7px 0px #f6ff33,
+      13px 12px 17px 0px #ff9527, 2px 17px 17px 0px #ff0000,
+      -9px 21px 18px 0px #fff212, -9px 6px 11px 0px #ff0808,
+      -11px -9px 11px 0px #fffa17, -11px -9px 11px 0px #fffa17,
+      5px 5px 15px 5px rgba(0, 0, 0, 0);
+    box-shadow: 4px -4px 15px 0px #ff1f1f, 12px -11px 7px 0px #ff9376,
+      20px -5px 7px 0px #ffe264, 20px 6px 7px 0px #f6ff33,
+      13px 12px 17px 0px #ff9527, 2px 17px 17px 0px #ff0000,
+      -9px 21px 18px 0px #fff212, -9px 6px 11px 0px #ff0808,
+      -11px -9px 11px 0px #fffa17, -11px -9px 11px 0px #fffa17,
+      5px 5px 15px 5px rgba(0, 0, 0, 0);
+  }
+}
+/* On Desktop */
+@media only screen and (min-width: 750px) {
+  .winner h3 {
+    background-color: var(--pig-color);
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    margin-left: 20%;
+    margin-right: 20%;
+    color: #eae3d2;
+    font-size: 2.6rem;
+    border: 5px solid var(--red-bright);
+    border-radius: 50px;
+    -webkit-box-shadow: 4px -4px 15px 0px #ff1f1f, 12px -11px 7px 0px #ff9376,
+      20px -5px 7px 0px #ffe264, 20px 6px 7px 0px #f6ff33,
+      13px 12px 17px 0px #ff9527, 2px 17px 17px 0px #ff0000,
+      -9px 21px 18px 0px #fff212, -9px 6px 11px 0px #ff0808,
+      -11px -9px 11px 0px #fffa17, -11px -9px 11px 0px #fffa17,
+      5px 5px 15px 5px rgba(0, 0, 0, 0);
+    box-shadow: 4px -4px 15px 0px #ff1f1f, 12px -11px 7px 0px #ff9376,
+      20px -5px 7px 0px #ffe264, 20px 6px 7px 0px #f6ff33,
+      13px 12px 17px 0px #ff9527, 2px 17px 17px 0px #ff0000,
+      -9px 21px 18px 0px #fff212, -9px 6px 11px 0px #ff0808,
+      -11px -9px 11px 0px #fffa17, -11px -9px 11px 0px #fffa17,
+      5px 5px 15px 5px rgba(0, 0, 0, 0);
+  }
+}
+
+.player-name-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  /* TODO: Flex-shrink?? */
+  margin-bottom: 5vh;
 }
 
 .player-name-row h2 {
@@ -87,19 +148,14 @@ input {
   /* background-color: #9facac; */
 }
 
-.player-name-row,
 .scores-row {
   margin-bottom: 5vh;
 }
 
 .player-highlighted {
-  font-family: var(--font-bangers);
+  /* font-family: var(--font-bangers); */
   background-color: var(--pig-color);
   color: var(--main-background-color);
-}
-
-.hidden {
-  display: none;
 }
 
 .footer {
@@ -122,4 +178,8 @@ h3 {
 .footer-container {
   margin-top: auto;
   min-height: 10vh;
+}
+
+.hidden {
+  display: none;
 }

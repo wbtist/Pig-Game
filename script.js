@@ -1,8 +1,6 @@
 'use scrict'
 
-// TODO: Option to change player name
-// TODO: Entering player names using <input> field insted of prompts
-// TODO: Highlight active player (.player-highlighted)
+// TODO: Highlight active player (.player-highlighted to .player--[currentPlayer]-name)
 // TODO: Refactor css classnames for better readibility
 // TODO: Add links to my other games later
 
@@ -34,6 +32,8 @@ function setDefaults() {
   player_0_Name_Display.textContent = playerNameArray[0];
   player_1_Name_Display.textContent = playerNameArray[1];
   currentPlayer = 0;
+  player_0_Name_Display.classList.add('player-highlighted');
+  player_1_Name_Display.classList.remove('player-highlighted');
   currentScore = 0;
   scores[0] = 0;
   scores[1] = 0;
@@ -79,9 +79,9 @@ hold_Button.addEventListener('click', () => {
   document.querySelector(`#player--${currentPlayer}-score`).textContent = scores[currentPlayer];
   // Clear turn value
   document.querySelector(`#player--${currentPlayer}-turn`).textContent = 0;
-  if (scores[currentPlayer] >= 100) {
+  if (scores[currentPlayer] >= 10) {
     dice_image.classList.add('hidden');
-    win_Message.textContent = `🏆 Congratulations, ${playerNameArray[currentPlayer]} win🏆`
+    win_Message.textContent = `🏆 Congratulations, ${playerNameArray[currentPlayer]} won \n🏆`
     win_Message.classList.remove('hidden');
   } else {
     switchPlayers();
@@ -93,4 +93,6 @@ hold_Button.addEventListener('click', () => {
 
 function switchPlayers() {
   currentPlayer = currentPlayer === 0 ? 1 : 0;
+  player_0_Name_Display.classList.toggle('player-highlighted');
+  player_1_Name_Display.classList.toggle('player-highlighted');
 };
