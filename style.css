@@ -24,25 +24,13 @@
   color: var(--dark-text-color);
   text-align: center;
 }
-/* TODO: Tidy Media queryes! */
+
+/* Media Queryes */
+/* Mobile view */
 @media only screen and (max-width: 750px) {
   h1 {
     font-size: 1.4rem;
   }
-}
-
-@media only screen and (min-width: 751px) {
-  h1 {
-    font-size: 3rem;
-  }
-}
-
-.dice-image {
-  width: 10vw;
-  margin-top: 5vh;
-  margin-bottom: 2vh;
-}
-@media only screen and (max-width: 750px) {
   input {
     border: none;
     background-color: transparent;
@@ -51,34 +39,10 @@
     font-size: 1rem;
     text-align: center;
   }
-}
-
-@media only screen and (min-width: 750px) {
-  input {
-    border: none;
-    background-color: transparent;
-    resize: none;
-    outline: none;
-    font-size: 2rem;
-    text-align: center;
-  }
-}
-
-.btn {
-  font-size: 1.5rem;
-}
-
-#players-container {
-  margin-top: 5vh;
-}
-
-/* Winner message */
-/* On Mobile */
-@media only screen and (max-width: 750px) {
   .winner h3 {
     background-color: var(--pig-color);
-    padding-top: 10vh;
-    padding-bottom: 10vh;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
     margin-top: 10vh;
     margin-bottom: 10vh;
     margin-left: 20%;
@@ -101,8 +65,20 @@
       5px 5px 15px 5px rgba(0, 0, 0, 0);
   }
 }
-/* On Desktop */
-@media only screen and (min-width: 750px) {
+
+/* Desktop view */
+@media only screen and (min-width: 751px) {
+  h1 {
+    font-size: 3rem;
+  }
+  input {
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+    font-size: 2rem;
+    text-align: center;
+  }
   .winner h3 {
     background-color: var(--pig-color);
     padding-top: 3vh;
@@ -128,6 +104,21 @@
       -11px -9px 11px 0px #fffa17, -11px -9px 11px 0px #fffa17,
       5px 5px 15px 5px rgba(0, 0, 0, 0);
   }
+}
+/* End Media Queryes */
+
+.dice-image {
+  width: 10vw;
+  margin-top: 5vh;
+  margin-bottom: 2vh;
+}
+
+.btn {
+  font-size: 1.5rem;
+}
+
+#players-container {
+  margin-top: 5vh;
 }
 
 .player-name-row {

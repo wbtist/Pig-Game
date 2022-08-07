@@ -25,7 +25,7 @@ const dice_image = document.querySelector('.dice-image');
 let player_0_Name, player_1_Name;
 const player_0_Name_Display = document.querySelector('.player--0-name');
 const player_1_Name_Display = document.querySelector('.player--1-name');
-let playerNameArray = ['Istvan', 'Anita'];
+let playerNameArray = [];
 
 //* Setting up game defaults
 function setDefaults() {
