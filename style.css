@@ -41,10 +41,10 @@
   }
   .winner h3 {
     background-color: var(--pig-color);
-    padding-top: 5vh;
-    padding-bottom: 5vh;
-    margin-top: 10vh;
-    margin-bottom: 10vh;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
     margin-left: 20%;
     margin-right: 20%;
     color: #eae3d2;
@@ -81,10 +81,10 @@
   }
   .winner h3 {
     background-color: var(--pig-color);
-    padding-top: 3vh;
-    padding-bottom: 3vh;
-    margin-top: 10vh;
-    margin-bottom: 10vh;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    margin-top: 4vh;
+    margin-bottom: 4vh;
     margin-left: 20%;
     margin-right: 20%;
     color: #eae3d2;
@@ -128,19 +128,20 @@
   align-items: center;
   justify-content: center;
   /* TODO: Flex-shrink?? */
-  margin-bottom: 5vh;
+  margin-bottom: 2vh;
 }
 
 .player-name-row h2 {
   font-size: 2.5rem;
 }
 
-#names-container {
-  /* background-color: #9facac; */
+.set-names-button {
+  font-size: 0.8rem;
+  margin-bottom: 20px;
 }
 
 .scores-row {
-  margin-bottom: 5vh;
+  margin-bottom: 2vh;
 }
 
 .player-highlighted {
@@ -150,6 +151,7 @@
 }
 
 .footer {
+  min-height: 100%;
   background-color: var(--dark-text-color);
 }
 
@@ -163,14 +165,20 @@ h3 {
 }
 
 .main-container {
-  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .footer-container {
-  margin-top: auto;
-  min-height: 10vh;
+  position: fixed;
+  bottom: 0;
 }
 
 .hidden {
+  visibility: hidden;
+}
+
+.disapper {
   display: none;
 }

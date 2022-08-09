@@ -69,7 +69,7 @@
           </button>
         </div>
       </div>
-      <div class="row align-items-center justify-content-center">
+      <div id="dice-image-container" class="row align-items-center justify-content-center">
         <div class="col col-sm-4">
           <img class="dice-image" src="/img/dice--0.png" alt="" />
         </div>
@@ -78,19 +78,26 @@
         <div class="col col-sm-12 winner"><h3 class="win-message"></h3></div>
       </div>
       <div id="players-container" class="container-fluid px-4 text-center">
+        <div class="row align-items-center justify-content-center set-name-row">
+          <div class="col col-sm-4">
+            <button class="btn btn-sm btn-outline-info set-names-button">
+              Save names
+            </button>
+          </div>
+        </div>
         <div class="row align-items-center player-name-row">
           <div class="col col-sm-6">
             <input
               class="playernames player--0-name"
               type="text"
-              placeholder="Enter Player 1 Name"
+              placeholder="Enter Player 1 Name" maxlength="18"
             />
           </div>
           <div class="col col-sm-6">
             <input
               class="playernames player--1-name"
               type="text"
-              placeholder="Enter Player 2 Name"
+              placeholder="Enter Player 2 Name" maxlength="18"
             />
           </div>
         </div>
@@ -116,7 +123,7 @@
     <div class="container-fluid mt-auto footer-container">
       <div class="row align-items-center">
         <div class="col col-sm-12"></div>
-        <footer class="footer">
+          <footer class="footer">
           <h3>
             Made with 💗 and 😰 by Istvan Toth ➡️
             <a
@@ -126,7 +133,8 @@
               >GitHub</a
             >
           </h3>
-        </footer>
+          </footer>
+        </div>
       </div>
     </div>
 
