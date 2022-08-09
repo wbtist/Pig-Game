@@ -10,7 +10,7 @@
 
   /* fonts */
   --main-font-type: "Gantari";
-  --font-fredericka-the-great: "Fredericka the Great";
+  --Player-names-font-fredericka-the-great: "Fredericka the Great";
   --font-bangers: "Bangers";
   /* Dirt-like */
   --font-header: "Rubik Moonrocks";
@@ -21,8 +21,14 @@
   padding: 0;
   box-sizing: border-box;
   background-color: var(--main-background-color);
-  color: var(--dark-text-color);
   text-align: center;
+}
+
+body {
+  color: var(--dark-text-color);
+}
+input {
+  width: 40vw;
 }
 
 /* Media Queryes */
@@ -36,7 +42,9 @@
     background-color: transparent;
     resize: none;
     outline: none;
+    font-family: var(--Player-names-font-fredericka-the-great);
     font-size: 1rem;
+    color: var(--active-player);
     text-align: center;
   }
   .winner h3 {
@@ -76,6 +84,8 @@
     background-color: transparent;
     resize: none;
     outline: none;
+    font-family: var(--Player-names-font-fredericka-the-great);
+    color: var(--active-player);
     font-size: 2rem;
     text-align: center;
   }
@@ -107,6 +117,9 @@
 }
 /* End Media Queryes */
 
+h1 {
+}
+
 .dice-image {
   width: 10vw;
   margin-top: 5vh;
@@ -117,23 +130,13 @@
   font-size: 1.5rem;
 }
 
-#players-container {
-  margin-top: 5vh;
-}
-
 .player-name-row {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
-  /* TODO: Flex-shrink?? */
-  margin-bottom: 2vh;
-  margin-top: 2vh;
-}
-
-.player-name-row h2 {
-  font-size: 2.5rem;
+  margin: 3vh auto;
 }
 
 .set-names-button {
@@ -146,7 +149,6 @@
 }
 
 .player-highlighted {
-  /* font-family: var(--font-bangers); */
   background-color: var(--pig-color);
   color: var(--main-background-color);
 }
@@ -156,23 +158,17 @@
   font-size: 1rem;
 }
 
-footer {
+.footer {
   min-height: 100%;
-  background-color: var(--dark-text-color);
-}
-
-footer p,
-a {
-  font-family: var(--main-font-type);
   background-color: var(--dark-text-color);
   color: var(--main-background-color);
   font-size: 1rem;
 }
 
-footer p .main-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+.footer p,
+a {
+  color: var(--main-background-color);
+  background-color: var(--dark-text-color);
 }
 
 .footer-container {
