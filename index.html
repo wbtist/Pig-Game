@@ -34,12 +34,41 @@
         <a href="#">upgrade your browser</a> to improve your experience.
       </p>
     <![endif]-->
-    <!-- Header Row -->
+    <!-- Main Container -->
     <div class="container-fluid main-container">
+      <!-- Header Row -->
       <div class="row align-items-center justify-content-center">
         <div class="col col-sm-12"><h1>🐖🐖🐖 PIG GAME 🐖🐖🐖</h1></div>
       </div>
-      <!-- Buttons Row -->
+      <!-- END Header Row -->
+      <!-- Player names input Row -->
+      <div class="row align-items-center player-name-row">
+        <div class="col col-sm-6">
+          <input
+            class="playernames player--0-name"
+            type="text"
+            placeholder="Enter Player 1 Name" maxlength="18"
+          />
+        </div>
+        <div class="col col-sm-6">
+          <input
+            class="playernames player--1-name"
+            type="text"
+            placeholder="Enter Player 2 Name" maxlength="18"
+          />
+        </div>
+      </div>
+      <!-- END Player names input Row -->
+      <!-- Save names button Row -->
+      <div class="row align-items-center justify-content-center set-name-row">
+        <div class="col col-sm-4">
+          <button class="btn btn-sm btn-outline-info set-names-button">
+            Save names
+          </button>
+        </div>
+      </div>
+      <!-- END Save names button Row -->
+      <!-- Dice Buttons Row -->
       <div class="row align-items-center justify-content-center">
         <div class="col col-sm-3">
           <button
@@ -69,38 +98,23 @@
           </button>
         </div>
       </div>
+      <!-- END Dice Buttons Row -->
+      <!-- Dice Image Container -->
       <div id="dice-image-container" class="row align-items-center justify-content-center">
+        <!-- Dice Image Row -->
         <div class="col col-sm-4">
           <img class="dice-image" src="/img/dice--0.png" alt="" />
         </div>
+        <!-- END Dice Image Row -->
       </div>
+      <!-- END Dice Image Container -->
+      <!-- Win Message Row -->
       <div class="row align-items-center justify-content-center">
         <div class="col col-sm-12 winner"><h3 class="win-message"></h3></div>
       </div>
+      <!-- END Win Message Row -->
+      <!-- Player scroes Container -->
       <div id="players-container" class="container-fluid px-4 text-center">
-        <div class="row align-items-center justify-content-center set-name-row">
-          <div class="col col-sm-4">
-            <button class="btn btn-sm btn-outline-info set-names-button">
-              Save names
-            </button>
-          </div>
-        </div>
-        <div class="row align-items-center player-name-row">
-          <div class="col col-sm-6">
-            <input
-              class="playernames player--0-name"
-              type="text"
-              placeholder="Enter Player 1 Name" maxlength="18"
-            />
-          </div>
-          <div class="col col-sm-6">
-            <input
-              class="playernames player--1-name"
-              type="text"
-              placeholder="Enter Player 2 Name" maxlength="18"
-            />
-          </div>
-        </div>
         <div class="row align-items-center">
           <div class="col col-sm-6"><h2>SCORE</h2></div>
           <div class="col col-sm-6"><h2>SCORE</h2></div>
@@ -117,14 +131,21 @@
           <div class="col col-sm-6"><h2 id="player--0-turn">0</h2></div>
           <div class="col col-sm-6"><h2 id="player--1-turn">0</h2></div>
         </div>
+        <div class="row align-items-center align-content-center">
+          <div class="col col-sm-12">
+            <h3 class="hints">❕ Who first reach score 💯, wins.<br>Good luck little piggies</h3>
+          </div>
+        </div>
       </div>
+      <!-- END Player scroes Container -->
     </div>
+    <!-- Main Container -->
     <!-- Footer container -->
-    <div class="container-fluid mt-auto footer-container">
-      <div class="row align-items-center">
+    <div class="container-fluid footer-container">
+      <div class="row align-items-center justify-content-center">
         <div class="col col-sm-12"></div>
           <footer class="footer">
-          <h3>
+          <p>
             Made with 💗 and 😰 by Istvan Toth ➡️
             <a
               href="https://github.com/wbtist"
@@ -132,11 +153,12 @@
               rel="noopener noreferrer"
               >GitHub</a
             >
-          </h3>
+          </p>
           </footer>
         </div>
       </div>
     </div>
+    <!-- END Footer container -->
 
     <!-- Bootstrap script -->
     <script
@@ -144,7 +166,7 @@
       integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
       crossorigin="anonymous"
     ></script>
-    <!-- Game logic -->
+    <!-- Game logic Script-->
     <script src="script.js" async defer></script>
   </body>
 </html>
