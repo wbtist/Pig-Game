@@ -120,6 +120,15 @@ input {
 h1 {
 }
 
+summary {
+  color: #a390a9;
+  font-size: small;
+}
+
+details p {
+  font-size: small;
+}
+
 .dice-image-container {
   margin: 3vh auto;
 }
@@ -128,6 +137,18 @@ h1 {
   width: 10vw;
   margin-top: 5vh;
   margin-bottom: 2vh;
+}
+
+.summary-link,
+.summary-link:active {
+  text-decoration: inherit;
+  background-color: var(--main-background-color);
+  color: var(--dark-text-color);
+}
+
+.summary-link:hover {
+  text-decoration: inherit;
+  color: #a390a9;
 }
 
 #newGame-button {
@@ -177,6 +198,17 @@ h1 {
 a {
   color: var(--main-background-color);
   background-color: var(--dark-text-color);
+}
+
+.footer a {
+  text-decoration: inherit;
+}
+
+.footer a:hover {
+  color: #a390a9;
+}
+.footer a:visited {
+  text-decoration: inherit;
 }
 
 .footer-container {
