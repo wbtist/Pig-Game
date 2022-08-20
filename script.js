@@ -98,7 +98,7 @@ hold_Button.addEventListener('click', () => {
   document.querySelector(`#player--${currentPlayer}-score`).textContent = scores[currentPlayer];
   // Clear turn value
   document.querySelector(`#player--${currentPlayer}-turn`).textContent = 0;
-  if (scores[currentPlayer] >= 10) {
+  if (scores[currentPlayer] >= 100) {
     document.querySelector('#dice-image-container').classList.add('disapper');
     dice_image.classList.add('hidden');
     win_Message.textContent = `🏆 Congratulations, ${playerNameArray[currentPlayer]} won \n🏆`
