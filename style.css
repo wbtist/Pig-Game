@@ -24,6 +24,19 @@
   text-align: center;
 }
 
+a:link {
+  text-decoration: none;
+}
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+a:active {
+  text-decoration: none;
+}
+
 body {
   color: var(--dark-text-color);
 }
@@ -122,11 +135,11 @@ h1 {
 
 summary {
   color: #a390a9;
-  font-size: small;
+  font-size: 0.8rem;
 }
 
 details p {
-  font-size: small;
+  font-size: 0.8rem;
 }
 
 .dice-image-container {
@@ -198,17 +211,6 @@ details p {
 a {
   color: var(--main-background-color);
   background-color: var(--dark-text-color);
-}
-
-.footer a {
-  text-decoration: inherit;
-}
-
-.footer a:hover {
-  color: #a390a9;
-}
-.footer a:visited {
-  text-decoration: inherit;
 }
 
 .footer-container {
