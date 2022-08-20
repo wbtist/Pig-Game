@@ -1,9 +1,12 @@
 'use scrict'
 
 // TODO: Add links to my other games later
-// TODO: Random player start
+// TODO: Bigger buttons on desktop
+// TODO: Flip dice button based on active player
 
-
+// HTML ROW Selectors
+const diceButtonsRow = document.querySelector('.dice-buttons-row');
+const playersContainer = document.getElementById('players-container');
 // Scores
 const player_0_htmlScore = document.querySelector('#player--0-score');
 const player_1_htmlScore = document.querySelector('#player--1-score');
@@ -16,7 +19,7 @@ let currentScore;
 let currentPlayer;
 // Buttons
 const new_Game_Button = document.querySelector('#newGame-button');
-const dice_Button = document.querySelector('#dice-button');
+const dice_Button = document.querySelector('.dice-button');
 const hold_Button = document.querySelector('#hold-button');
 const setNames = document.querySelector('.set-names-button');
 // Dice image
@@ -29,8 +32,11 @@ let playerNameArray = [];
 
 //* Setting up game defaults
 function setDefaults() {
+  new_Game_Button.classList.add('disapper');
+  diceButtonsRow.classList.add('disapper');
   document.querySelector('#dice-image-container').classList.remove('disapper');
   setNames.classList.remove('disapper');
+  playersContainer.classList.add('disapper');
   playerNameArray = [];
   const currentPlayerRandomNum = Math.round(Math.random());
   currentPlayer = currentPlayerRandomNum;
@@ -57,11 +63,15 @@ setNames.addEventListener('click', () => {
   playerNameArray[0] = player_0_Name_Display.value;
   playerNameArray[1] = player_1_Name_Display.value;
   setNames.classList.add('disapper');
+  playersContainer.classList.remove('disapper');
+  diceButtonsRow.classList.remove('disapper');
+  document.querySelector(`.player--${currentPlayer}-name`).classList.add('player-highlighted');
+  toggleButtons();
 });
 
 dice_Button.addEventListener('click', () => {
   // Reveal active player
-  document.querySelector(`.player--${currentPlayer}-name`).classList.add('player-highlighted');
+  // document.querySelector(`.player--${currentPlayer}-name`).classList.add('player-highlighted');
   // * Generate Random Number
   const dice_Random_Number = Math.trunc(Math.random() * (7 - 1) + 1);
   // * Display image based on random number
@@ -88,11 +98,13 @@ hold_Button.addEventListener('click', () => {
   document.querySelector(`#player--${currentPlayer}-score`).textContent = scores[currentPlayer];
   // Clear turn value
   document.querySelector(`#player--${currentPlayer}-turn`).textContent = 0;
-  if (scores[currentPlayer] >= 100) {
+  if (scores[currentPlayer] >= 10) {
     document.querySelector('#dice-image-container').classList.add('disapper');
     dice_image.classList.add('hidden');
     win_Message.textContent = `🏆 Congratulations, ${playerNameArray[currentPlayer]} won \n🏆`
     win_Message.classList.remove('disapper');
+    new_Game_Button.classList.remove('disapper');
+    diceButtonsRow.classList.add('disapper');
   } else {
     switchPlayers();
     currentScore = 0;
@@ -105,4 +117,15 @@ function switchPlayers() {
   currentPlayer = currentPlayer === 0 ? 1 : 0;
   player_0_Name_Display.classList.toggle('player-highlighted');
   player_1_Name_Display.classList.toggle('player-highlighted');
+  toggleButtons();
 };
+
+function toggleButtons() {
+  if (currentPlayer === 0) {
+    diceButtonsRow.classList.remove('justify-content-end');
+    diceButtonsRow.classList.add('justify-content-start');
+  } else {
+    diceButtonsRow.classList.remove('justify-content-start');
+    diceButtonsRow.classList.add('justify-content-end');
+  };
+}

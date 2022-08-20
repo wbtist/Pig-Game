@@ -52,7 +52,7 @@ input {
     padding-top: 2vh;
     padding-bottom: 2vh;
     margin-top: 2vh;
-    margin-bottom: 2vh;
+    margin-bottom: 8vh;
     margin-left: 20%;
     margin-right: 20%;
     color: #eae3d2;
@@ -94,7 +94,7 @@ input {
     padding-top: 2vh;
     padding-bottom: 2vh;
     margin-top: 4vh;
-    margin-bottom: 4vh;
+    margin-bottom: 6vh;
     margin-left: 20%;
     margin-right: 20%;
     color: #eae3d2;
@@ -120,10 +120,18 @@ input {
 h1 {
 }
 
+.dice-image-container {
+  margin: 3vh auto;
+}
+
 .dice-image {
   width: 10vw;
   margin-top: 5vh;
   margin-bottom: 2vh;
+}
+
+#newGame-button {
+  margin: 3% auto;
 }
 
 .btn {
