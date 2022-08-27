@@ -3,9 +3,9 @@
 [🎮 Play this game now!](https://wbtist.github.io/Pig-Game/)
 
 > ---
->
-> ### **🔆**This is my very first totally self build project
->
+> 
+> ### **🔆**This is my very first totally self built project
+> 
 > ---
 
 ## A classic two-player game
