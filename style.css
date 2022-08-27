@@ -142,6 +142,10 @@ details p {
   font-size: 0.8rem;
 }
 
+aside {
+  margin: 1% auto;
+}
+
 .dice-image-container {
   margin: 3vh auto;
 }
