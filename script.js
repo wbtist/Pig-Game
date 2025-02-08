@@ -1,4 +1,4 @@
-'use scrict'
+'use strict'
 
 // TODO: Add links to my other games later
 // TODO: Bigger buttons on desktop
