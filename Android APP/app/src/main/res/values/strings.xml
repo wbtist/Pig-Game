@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pig Game</string>
+    <string name="pig_game_title">🐖🐖🐖 PIG GAME 🐖🐖🐖</string>
+    <string name="new_game">NEW GAME</string>
+    <string name="roll_dice">ROLL DICE</string>
+    <string name="hold">HOLD</string>
+    <string name="save_names">Save Names</string>
+    <string name="player_1_hint">Enter Player 1 Name</string>
+    <string name="player_2_hint">Enter Player 2 Name</string>
+    <string name="score">SCORE</string>
+    <string name="turn">TURN</string>
+    <string name="game_hint">Who first reach score 100, wins.\nGood luck little piggies</string>
+    <string name="winner_message">🏆 Congratulations, %s won! 🏆</string>
+    <string name="game_rules_title">Game Rules</string>
+    <string name="game_rules_text">On your turn, keep rolling the die and adding to your score, but stop anytime to bank your points. If you roll a 1, you lose all points from that turn.</string>
+    <string name="learn_more">Learn More</string>
+    <string name="made_with_love">Made with 💗 by Istvan Toth</string>
+    <string name="player_turn">%s\'s turn</string>
+    <string name="dice_roll_result">You rolled: %d</string>
+    <string name="turn_lost">You rolled a 1! Turn over.</string>
+    <string name="points_banked">Points banked! %d total points.</string>
+</resources>

@@ -30,4 +30,6 @@ This document contains all the prompts used during the development session of th
 
 • update prompts-hystory.md
 
-• Create a .md file with all mz prompts in a bulletpoint format
+• Based on this project, create an Android app. Work on it insede the `Android APP` folder.  Make it ready to deploy on Google Play.
+
+• update prompts-hystory.md

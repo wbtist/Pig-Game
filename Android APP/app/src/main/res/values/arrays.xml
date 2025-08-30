@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dice faces for easy access -->
+    <string-array name="dice_faces">
+        <item>⚀</item>
+        <item>⚁</item>
+        <item>⚂</item>
+        <item>⚃</item>
+        <item>⚄</item>
+        <item>⚅</item>
+    </string-array>
+    
+    <!-- Pig emojis -->
+    <string-array name="pig_emojis">
+        <item>🐖</item>
+        <item>🐷</item>
+        <item>🐽</item>
+    </string-array>
+</resources>
