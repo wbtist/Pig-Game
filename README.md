@@ -18,4 +18,17 @@ Pig is one of a family of dice games described by Reiner Knizia as "jeopardy dic
 
 ## [Source {Wikipedia}](<https://www.wikiwand.com/en/Pig_(dice_game)>)
 
+## Development Updates
+
+**📅 August 30, 2025 onwards:** All changes and improvements to this project are now being made entirely with [Claude Code](https://claude.ai/code), Anthropic's official CLI tool for AI-assisted development.
+
+Recent enhancements include:
+- Mobile-responsive design improvements
+- Modern dark theme with advanced visual effects
+- Enhanced user interface with glass-morphism effects
+- Improved accessibility and responsive typography
+- Comprehensive documentation and development guides
+
+---
+
 [My GitHub Page](https://wbtist.github.io/)
