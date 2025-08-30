@@ -23,3 +23,11 @@ This document contains all the prompts used during the development session of th
 • make the new css file live
 
 • Create a .md file with all mz prompts in a bulletpoint format
+
+• Edit the README.md file. Explain in it that from as todaz the changes are made entirely with Claude Code
+
+• Add the Pig-game_pigs-Alpha-small.png under the PIG GAME text
+
+• update prompts-hystory.md
+
+• Create a .md file with all mz prompts in a bulletpoint format
