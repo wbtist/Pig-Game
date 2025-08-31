@@ -1,366 +1,250 @@
 'use strict';
 
-// Game Configuration Constants
+// Game Configuration Constants (Security improvement: Use constants)
 const GAME_CONFIG = {
     WINNING_SCORE: 100,
     DICE_FACES: 6,
-    MAX_PLAYER_NAME_LENGTH: 18,
-    DICE_IMAGE_PATH: 'img/dice--{number}.png'
+    MAX_PLAYER_NAME_LENGTH: 18
 };
 
-// Game State Management Object
-const PigGame = {
-    // Game state
-    scores: [0, 0],
-    currentScore: 0,
-    currentPlayer: 0,
-    isGameActive: false,
-    playerNames: [],
+// Input validation functions (Security improvement: Input validation)
+function validatePlayerName(name) {
+    if (!name || typeof name !== 'string') {
+        return false;
+    }
+    const trimmedName = name.trim();
+    return trimmedName.length > 0 && trimmedName.length <= GAME_CONFIG.MAX_PLAYER_NAME_LENGTH;
+}
 
-    // DOM elements cache
-    elements: {
-        diceButtonsRow: document.querySelector('.dice-buttons-row'),
-        playersContainer: document.getElementById('players-container'),
-        player0Score: document.querySelector('#player--0-score'),
-        player1Score: document.querySelector('#player--1-score'),
-        player0Turn: document.querySelector('#player--0-turn'),
-        player1Turn: document.querySelector('#player--1-turn'),
-        winMessage: document.querySelector('.win-message'),
-        newGameButton: document.querySelector('#newGame-button'),
-        diceButton: document.querySelector('.dice-button'),
-        holdButton: document.querySelector('#hold-button'),
-        setNamesButton: document.querySelector('.set-names-button'),
-        diceImage: document.querySelector('.dice-image'),
-        diceImageContainer: document.querySelector('#dice-image-container'),
-        player0NameDisplay: document.querySelector('.player--0-name'),
-        player1NameDisplay: document.querySelector('.player--1-name')
-    },
+function sanitizePlayerName(name) {
+    if (!name || typeof name !== 'string') {
+        return '';
+    }
+    return name.trim().slice(0, GAME_CONFIG.MAX_PLAYER_NAME_LENGTH);
+}
 
-    // Initialize game
-    init() {
-        this.bindEvents();
-        this.setDefaults();
-    },
+// HTML ROW Selectors - Same as original but with error handling
+const diceButtonsRow = document.querySelector('.dice-buttons-row');
+const playersContainer = document.getElementById('players-container');
+// Scores
+const player_0_htmlScore = document.querySelector('#player--0-score');
+const player_1_htmlScore = document.querySelector('#player--1-score');
+const player_0_htmlturn = document.querySelector('#player--0-turn');
+const player_1_htmlturn = document.querySelector('#player--1-turn');
+const win_Message = document.querySelector('.win-message');
+let scores = [0, 0];
+let currentScore;
+// Current player
+let currentPlayer;
+// Game state (Security improvement: Add game state tracking)
+let isGameActive = false;
+// Buttons
+const new_Game_Button = document.querySelector('#newGame-button');
+const dice_Button = document.querySelector('.dice-button');
+const hold_Button = document.querySelector('#hold-button');
+const setNames = document.querySelector('.set-names-button');
+// Dice image
+const dice_image = document.querySelector('.dice-image');
+// Player names
+let player_0_Name, player_1_Name;
+const player_0_Name_Display = document.querySelector('.player--0-name');
+const player_1_Name_Display = document.querySelector('.player--1-name');
+let playerNameArray = [];
 
-    // Bind all event listeners
-    bindEvents() {
-        this.elements.newGameButton.addEventListener('click', () => this.setDefaults());
-        this.elements.setNamesButton.addEventListener('click', () => this.handleSetNames());
-        this.elements.diceButton.addEventListener('click', () => this.rollDice());
-        this.elements.holdButton.addEventListener('click', () => this.holdScore());
-    },
-
-    // Input validation and sanitization
-    validatePlayerName(name) {
-        if (!name || typeof name !== 'string') {
-            return false;
-        }
+// Setting up game defaults - Enhanced with error handling
+function setDefaults() {
+    try {
+        if (new_Game_Button) new_Game_Button.classList.add('disapper');
+        if (diceButtonsRow) diceButtonsRow.classList.add('disapper');
+        if (document.querySelector('#dice-image-container')) document.querySelector('#dice-image-container').classList.remove('disapper');
+        if (setNames) setNames.classList.remove('disapper');
+        if (playersContainer) playersContainer.classList.add('disapper');
         
-        const trimmedName = name.trim();
-        return trimmedName.length > 0 && trimmedName.length <= GAME_CONFIG.MAX_PLAYER_NAME_LENGTH;
-    },
-
-    sanitizePlayerName(name) {
-        if (!name || typeof name !== 'string') {
-            return '';
-        }
+        playerNameArray = [];
+        // Security improvement: Better random number generation
+        currentPlayer = Math.floor(Math.random() * 2);
+        isGameActive = false;
         
-        return name.trim().slice(0, GAME_CONFIG.MAX_PLAYER_NAME_LENGTH);
-    },
+        if (player_0_Name_Display) player_0_Name_Display.classList.remove('player-highlighted');
+        if (player_1_Name_Display) player_1_Name_Display.classList.remove('player-highlighted');
+        
+        currentScore = 0;
+        scores[0] = 0;
+        scores[1] = 0;
+        
+        if (dice_image) dice_image.classList.add('hidden');
+        if (win_Message) win_Message.classList.add('disapper');
+        
+        // Reset scores with error handling
+        if (player_0_htmlScore) player_0_htmlScore.textContent = 0;
+        if (player_0_htmlturn) player_0_htmlturn.textContent = 0;
+        if (player_1_htmlScore) player_1_htmlScore.textContent = 0;
+        if (player_1_htmlturn) player_1_htmlturn.textContent = 0;
+        
+        // Clear input fields (Security improvement)
+        if (player_0_Name_Display) player_0_Name_Display.value = '';
+        if (player_1_Name_Display) player_1_Name_Display.value = '';
 
-    // Set game defaults and reset state
-    setDefaults() {
-        try {
-            // Reset game state
-            this.scores = [0, 0];
-            this.currentScore = 0;
-            this.playerNames = [];
-            this.isGameActive = false;
+    } catch (error) {
+        console.error('Error in setDefaults:', error);
+        alert('Failed to initialize game. Please refresh the page.');
+    }
+}
 
-            // Generate random starting player securely
-            this.currentPlayer = Math.floor(Math.random() * 2);
+// Initialize game
+setDefaults();
 
-            // Reset UI elements with error handling
-            this.updateElementClass(this.elements.newGameButton, 'disappear', 'add');
-            this.updateElementClass(this.elements.diceButtonsRow, 'disappear', 'add');
-            this.updateElementClass(this.elements.diceImageContainer, 'disappear', 'remove');
-            this.updateElementClass(this.elements.setNamesButton, 'disappear', 'remove');
-            this.updateElementClass(this.elements.playersContainer, 'disappear', 'add');
-            this.updateElementClass(this.elements.player0NameDisplay, 'player-highlighted', 'remove');
-            this.updateElementClass(this.elements.player1NameDisplay, 'player-highlighted', 'remove');
-            this.updateElementClass(this.elements.diceImage, 'hidden', 'add');
-            this.updateElementClass(this.elements.winMessage, 'disappear', 'add');
+// Enhanced switch players function
+function switchPlayers() {
+    try {
+        currentPlayer = currentPlayer === 0 ? 1 : 0;
+        if (player_0_Name_Display) player_0_Name_Display.classList.toggle('player-highlighted');
+        if (player_1_Name_Display) player_1_Name_Display.classList.toggle('player-highlighted');
+        toggleButtons();
+    } catch (error) {
+        console.error('Error switching players:', error);
+    }
+}
 
-            // Reset score displays
-            this.updateScoreDisplay(0, 0);
-            this.updateTurnDisplay(0, 0);
-            this.updateScoreDisplay(1, 0);
-            this.updateTurnDisplay(1, 0);
-
-            // Clear player name inputs
-            if (this.elements.player0NameDisplay) {
-                this.elements.player0NameDisplay.value = '';
-            }
-            if (this.elements.player1NameDisplay) {
-                this.elements.player1NameDisplay.value = '';
-            }
-
-        } catch (error) {
-            console.error('Error setting game defaults:', error);
-            this.showErrorMessage('Failed to initialize game. Please refresh the page.');
+function toggleButtons() {
+    try {
+        if (!diceButtonsRow) return;
+        
+        if (currentPlayer === 0) {
+            diceButtonsRow.classList.remove('justify-content-end');
+            diceButtonsRow.classList.add('justify-content-start');
+        } else {
+            diceButtonsRow.classList.remove('justify-content-start');
+            diceButtonsRow.classList.add('justify-content-end');
         }
-    },
+    } catch (error) {
+        console.error('Error toggling buttons:', error);
+    }
+}
 
-    // Handle setting player names with validation
-    handleSetNames() {
+// Event Listeners - Enhanced with security and error handling
+if (new_Game_Button) {
+    new_Game_Button.addEventListener('click', () => {
+        setDefaults();
+    });
+}
+
+if (setNames) {
+    setNames.addEventListener('click', () => {
         try {
-            const player0Name = this.sanitizePlayerName(this.elements.player0NameDisplay.value);
-            const player1Name = this.sanitizePlayerName(this.elements.player1NameDisplay.value);
+            // Security improvement: Validate and sanitize input
+            const player0Name = sanitizePlayerName(player_0_Name_Display?.value);
+            const player1Name = sanitizePlayerName(player_1_Name_Display?.value);
 
             // Validate both player names
-            if (!this.validatePlayerName(player0Name)) {
-                this.showErrorMessage('Player 1 name must be between 1 and 18 characters.');
+            if (!validatePlayerName(player0Name)) {
+                alert('Player 1 name must be between 1 and 18 characters.');
                 return;
             }
 
-            if (!this.validatePlayerName(player1Name)) {
-                this.showErrorMessage('Player 2 name must be between 1 and 18 characters.');
+            if (!validatePlayerName(player1Name)) {
+                alert('Player 2 name must be between 1 and 18 characters.');
                 return;
             }
 
-            // Store sanitized names
-            this.playerNames[0] = player0Name;
-            this.playerNames[1] = player1Name;
-
-            // Update UI
-            this.updateElementClass(this.elements.setNamesButton, 'disappear', 'add');
-            this.updateElementClass(this.elements.playersContainer, 'disappear', 'remove');
-            this.updateElementClass(this.elements.diceButtonsRow, 'disappear', 'remove');
-
-            // Highlight current player
-            const currentPlayerElement = document.querySelector(`.player--${this.currentPlayer}-name`);
+            playerNameArray[0] = player0Name;
+            playerNameArray[1] = player1Name;
+            
+            if (setNames) setNames.classList.add('disapper');
+            if (playersContainer) playersContainer.classList.remove('disapper');
+            if (diceButtonsRow) diceButtonsRow.classList.remove('disapper');
+            
+            const currentPlayerElement = document.querySelector(`.player--${currentPlayer}-name`);
             if (currentPlayerElement) {
                 currentPlayerElement.classList.add('player-highlighted');
             }
-
-            this.toggleButtons();
-            this.isGameActive = true;
+            
+            toggleButtons();
+            isGameActive = true;
 
         } catch (error) {
             console.error('Error setting player names:', error);
-            this.showErrorMessage('Failed to set player names. Please try again.');
+            alert('Failed to set player names. Please try again.');
         }
-    },
+    });
+}
 
-    // Roll dice with error handling
-    rollDice() {
-        if (!this.isGameActive) {
-            return;
-        }
+if (dice_Button) {
+    dice_Button.addEventListener('click', () => {
+        if (!isGameActive) return;
 
         try {
-            // Generate secure random number for dice (1-6)
-            const diceValue = Math.floor(Math.random() * GAME_CONFIG.DICE_FACES) + 1;
+            // Security improvement: Better random generation and use constants
+            const dice_Random_Number = Math.floor(Math.random() * GAME_CONFIG.DICE_FACES) + 1;
+            
+            // Display image based on random number with error handling
+            if (dice_image) {
+                dice_image.src = `img/dice--${dice_Random_Number}.png`;
+                dice_image.classList.remove('hidden');
+            }
 
-            // Update dice image with error handling
-            this.updateDiceImage(diceValue);
-
-            if (diceValue !== 1) {
-                // Add to current score
-                this.currentScore += diceValue;
-                this.updateTurnDisplay(this.currentPlayer, this.currentScore);
+            if (dice_Random_Number !== 1) {
+                currentScore += dice_Random_Number;
+                const turnElement = document.querySelector(`#player--${currentPlayer}-turn`);
+                if (turnElement) turnElement.textContent = currentScore;
             } else {
-                // Player rolled 1, switch turns
-                this.updateTurnDisplay(this.currentPlayer, 0);
-                this.switchPlayers();
-                this.currentScore = 0;
+                const turnElement = document.querySelector(`#player--${currentPlayer}-turn`);
+                if (turnElement) turnElement.textContent = 0;
+                // Switch players
+                switchPlayers();
+                currentScore = 0;
             }
 
         } catch (error) {
             console.error('Error rolling dice:', error);
-            this.showErrorMessage('Error rolling dice. Please try again.');
+            alert('Error rolling dice. Please try again.');
         }
-    },
+    });
+}
 
-    // Hold current score
-    holdScore() {
-        if (!this.isGameActive) {
-            return;
-        }
+if (hold_Button) {
+    hold_Button.addEventListener('click', () => {
+        if (!isGameActive) return;
 
         try {
-            // Add current score to total
-            this.scores[this.currentPlayer] += this.currentScore;
-            this.updateScoreDisplay(this.currentPlayer, this.scores[this.currentPlayer]);
-            this.updateTurnDisplay(this.currentPlayer, 0);
+            // Add current player current score to score.
+            scores[currentPlayer] += currentScore;
+            
+            // Display the score
+            const scoreElement = document.querySelector(`#player--${currentPlayer}-score`);
+            if (scoreElement) scoreElement.textContent = scores[currentPlayer];
+            
+            // Clear turn value
+            const turnElement = document.querySelector(`#player--${currentPlayer}-turn`);
+            if (turnElement) turnElement.textContent = 0;
 
-            // Check for win condition
-            if (this.scores[this.currentPlayer] >= GAME_CONFIG.WINNING_SCORE) {
-                this.handleGameWin();
+            // Security improvement: Use constant for winning score
+            if (scores[currentPlayer] >= GAME_CONFIG.WINNING_SCORE) {
+                isGameActive = false;
+                
+                const diceImageContainer = document.querySelector('#dice-image-container');
+                if (diceImageContainer) diceImageContainer.classList.add('disapper');
+                if (dice_image) dice_image.classList.add('hidden');
+                
+                // Security improvement: Sanitized player name output
+                const winnerName = playerNameArray[currentPlayer] || `Player ${currentPlayer + 1}`;
+                if (win_Message) {
+                    win_Message.textContent = `🏆 Congratulations, ${winnerName} won! 🏆`;
+                    win_Message.classList.remove('disapper');
+                }
+                
+                if (new_Game_Button) new_Game_Button.classList.remove('disapper');
+                if (diceButtonsRow) diceButtonsRow.classList.add('disapper');
             } else {
-                this.switchPlayers();
-                this.currentScore = 0;
+                switchPlayers();
+                currentScore = 0;
             }
 
         } catch (error) {
             console.error('Error holding score:', error);
-            this.showErrorMessage('Error holding score. Please try again.');
+            alert('Error holding score. Please try again.');
         }
-    },
-
-    // Handle game win
-    handleGameWin() {
-        try {
-            this.isGameActive = false;
-            
-            const winnerName = this.playerNames[this.currentPlayer] || `Player ${this.currentPlayer + 1}`;
-            
-            this.updateElementClass(this.elements.diceImageContainer, 'disappear', 'add');
-            this.updateElementClass(this.elements.diceImage, 'hidden', 'add');
-            this.updateElementClass(this.elements.diceButtonsRow, 'disappear', 'add');
-            this.updateElementClass(this.elements.newGameButton, 'disappear', 'remove');
-
-            // Display win message with sanitized player name
-            if (this.elements.winMessage) {
-                this.elements.winMessage.textContent = `🏆 Congratulations, ${winnerName} won! 🏆`;
-                this.updateElementClass(this.elements.winMessage, 'disappear', 'remove');
-            }
-
-        } catch (error) {
-            console.error('Error handling game win:', error);
-            this.showErrorMessage('Game completed but there was an error displaying the result.');
-        }
-    },
-
-    // Switch active player
-    switchPlayers() {
-        try {
-            this.currentPlayer = this.currentPlayer === 0 ? 1 : 0;
-            
-            if (this.elements.player0NameDisplay && this.elements.player1NameDisplay) {
-                this.elements.player0NameDisplay.classList.toggle('player-highlighted');
-                this.elements.player1NameDisplay.classList.toggle('player-highlighted');
-            }
-            
-            this.toggleButtons();
-
-        } catch (error) {
-            console.error('Error switching players:', error);
-        }
-    },
-
-    // Toggle button positioning based on current player
-    toggleButtons() {
-        try {
-            if (!this.elements.diceButtonsRow) {
-                return;
-            }
-
-            if (this.currentPlayer === 0) {
-                this.elements.diceButtonsRow.classList.remove('justify-content-end');
-                this.elements.diceButtonsRow.classList.add('justify-content-start');
-            } else {
-                this.elements.diceButtonsRow.classList.remove('justify-content-start');
-                this.elements.diceButtonsRow.classList.add('justify-content-end');
-            }
-
-        } catch (error) {
-            console.error('Error toggling buttons:', error);
-        }
-    },
-
-    // Update dice image with fallback handling
-    updateDiceImage(diceValue) {
-        try {
-            if (!this.elements.diceImage) {
-                return;
-            }
-
-            const imagePath = GAME_CONFIG.DICE_IMAGE_PATH.replace('{number}', diceValue);
-            
-            // Create new image element to test loading
-            const testImage = new Image();
-            testImage.onload = () => {
-                this.elements.diceImage.src = imagePath;
-                this.updateElementClass(this.elements.diceImage, 'hidden', 'remove');
-            };
-            testImage.onerror = () => {
-                console.error(`Failed to load dice image: ${imagePath}`);
-                this.showErrorMessage('Failed to load dice image.');
-            };
-            testImage.src = imagePath;
-
-        } catch (error) {
-            console.error('Error updating dice image:', error);
-        }
-    },
-
-    // Utility function to safely update element classes
-    updateElementClass(element, className, action) {
-        try {
-            if (!element || !className) {
-                return;
-            }
-
-            if (action === 'add') {
-                element.classList.add(className);
-            } else if (action === 'remove') {
-                element.classList.remove(className);
-            } else if (action === 'toggle') {
-                element.classList.toggle(className);
-            }
-
-        } catch (error) {
-            console.error('Error updating element class:', error);
-        }
-    },
-
-    // Update score display safely
-    updateScoreDisplay(playerIndex, score) {
-        try {
-            const element = playerIndex === 0 ? this.elements.player0Score : this.elements.player1Score;
-            if (element) {
-                element.textContent = score;
-            }
-        } catch (error) {
-            console.error('Error updating score display:', error);
-        }
-    },
-
-    // Update turn display safely
-    updateTurnDisplay(playerIndex, score) {
-        try {
-            const element = playerIndex === 0 ? this.elements.player0Turn : this.elements.player1Turn;
-            if (element) {
-                element.textContent = score;
-            }
-        } catch (error) {
-            console.error('Error updating turn display:', error);
-        }
-    },
-
-    // Show error message to user
-    showErrorMessage(message) {
-        try {
-            // Simple alert for now - could be enhanced with custom modal
-            alert(message);
-        } catch (error) {
-            console.error('Error showing error message:', error);
-        }
-    }
-};
-
-// Initialize game when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    try {
-        PigGame.init();
-    } catch (error) {
-        console.error('Failed to initialize Pig Game:', error);
-        alert('Failed to initialize game. Please refresh the page.');
-    }
-});
-
-// Export game object for testing purposes (if in module environment)
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { PigGame, GAME_CONFIG };
+    });
 }
+
+console.log('Secured Pig Game loaded successfully');

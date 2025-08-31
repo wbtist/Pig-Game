@@ -3,7 +3,8 @@
     "allow": [
       "Bash(claude mcp add:*)",
       "Bash(claude mcp:*)",
-      "Bash(uvx:*)"
+      "Bash(uvx:*)",
+      "Bash(pkill:*)"
     ],
     "deny": [],
     "ask": []
