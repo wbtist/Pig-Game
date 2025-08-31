@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(claude mcp add:*)",
+      "Bash(claude mcp:*)",
+      "Bash(uvx:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
