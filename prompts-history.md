@@ -4,6 +4,8 @@ This document contains all the prompts used during the development session of th
 
 ## Development Session Prompts
 
+### Initial Development (Previous Session)
+
 • Please analyze this codebase and create a CLAUDE.md file, which will be given to future instances of Claude Code to operate in this repository.
 
 • Create a new css file based on style.css. make the app mobile responsible
@@ -30,6 +32,18 @@ This document contains all the prompts used during the development session of th
 
 • update prompts-hystory.md
 
-• Based on this project, create an Android app. Work on it insede the `Android APP` folder.  Make it ready to deploy on Google Play.
+### Security Analysis and Code Quality Session (August 31, 2025)
 
-• update prompts-hystory.md
+• claude mcp add --transport http Ref "https://api.ref.tools/mcp?apiKey=ref-464d10ea7aa89ed77d27"
+
+• claude mcp add semgrep uvx semgrep-mcp
+
+• Use Semgrep mcp and check this project
+
+• Create a Security-log.md file and create a report about the code quality, based on the semgrep mcp analysis.
+
+• create a secured-script.js file, based on security-log.md recommendations.
+
+• The app with secured-script.js does not work, check all.
+
+• Update prompts-history.md with the relevant data
