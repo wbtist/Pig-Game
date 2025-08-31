@@ -17,52 +17,37 @@ const PigGame = {
     isGameActive: false,
     playerNames: [],
 
-    // DOM elements cache (populated after DOM is ready)
-    elements: {},
-
-    // Initialize DOM elements cache
-    initElements() {
-        this.elements = {
-            diceButtonsRow: document.querySelector('.dice-buttons-row'),
-            playersContainer: document.getElementById('players-container'),
-            player0Score: document.querySelector('#player--0-score'),
-            player1Score: document.querySelector('#player--1-score'),
-            player0Turn: document.querySelector('#player--0-turn'),
-            player1Turn: document.querySelector('#player--1-turn'),
-            winMessage: document.querySelector('.win-message'),
-            newGameButton: document.querySelector('#newGame-button'),
-            diceButton: document.querySelector('.dice-button'),
-            holdButton: document.querySelector('#hold-button'),
-            setNamesButton: document.querySelector('.set-names-button'),
-            diceImage: document.querySelector('.dice-image'),
-            diceImageContainer: document.querySelector('#dice-image-container'),
-            player0NameDisplay: document.querySelector('.player--0-name'),
-            player1NameDisplay: document.querySelector('.player--1-name')
-        };
+    // DOM elements cache
+    elements: {
+        diceButtonsRow: document.querySelector('.dice-buttons-row'),
+        playersContainer: document.getElementById('players-container'),
+        player0Score: document.querySelector('#player--0-score'),
+        player1Score: document.querySelector('#player--1-score'),
+        player0Turn: document.querySelector('#player--0-turn'),
+        player1Turn: document.querySelector('#player--1-turn'),
+        winMessage: document.querySelector('.win-message'),
+        newGameButton: document.querySelector('#newGame-button'),
+        diceButton: document.querySelector('.dice-button'),
+        holdButton: document.querySelector('#hold-button'),
+        setNamesButton: document.querySelector('.set-names-button'),
+        diceImage: document.querySelector('.dice-image'),
+        diceImageContainer: document.querySelector('#dice-image-container'),
+        player0NameDisplay: document.querySelector('.player--0-name'),
+        player1NameDisplay: document.querySelector('.player--1-name')
     },
 
     // Initialize game
     init() {
-        this.initElements();
         this.bindEvents();
         this.setDefaults();
     },
 
     // Bind all event listeners
     bindEvents() {
-        if (this.elements.newGameButton) {
-            this.elements.newGameButton.addEventListener('click', () => this.setDefaults());
-        }
-        if (this.elements.setNamesButton) {
-            this.elements.setNamesButton.addEventListener('click', () => this.handleSetNames());
-        }
-        if (this.elements.diceButton) {
-            this.elements.diceButton.addEventListener('click', () => this.rollDice());
-        }
-        if (this.elements.holdButton) {
-            this.elements.holdButton.addEventListener('click', () => this.holdScore());
-        }
-        console.log('Secured Pig Game initialized successfully');
+        this.elements.newGameButton.addEventListener('click', () => this.setDefaults());
+        this.elements.setNamesButton.addEventListener('click', () => this.handleSetNames());
+        this.elements.diceButton.addEventListener('click', () => this.rollDice());
+        this.elements.holdButton.addEventListener('click', () => this.holdScore());
     },
 
     // Input validation and sanitization
@@ -96,15 +81,15 @@ const PigGame = {
             this.currentPlayer = Math.floor(Math.random() * 2);
 
             // Reset UI elements with error handling
-            this.updateElementClass(this.elements.newGameButton, 'disapper', 'add');
-            this.updateElementClass(this.elements.diceButtonsRow, 'disapper', 'add');
-            this.updateElementClass(this.elements.diceImageContainer, 'disapper', 'remove');
-            this.updateElementClass(this.elements.setNamesButton, 'disapper', 'remove');
-            this.updateElementClass(this.elements.playersContainer, 'disapper', 'add');
+            this.updateElementClass(this.elements.newGameButton, 'disappear', 'add');
+            this.updateElementClass(this.elements.diceButtonsRow, 'disappear', 'add');
+            this.updateElementClass(this.elements.diceImageContainer, 'disappear', 'remove');
+            this.updateElementClass(this.elements.setNamesButton, 'disappear', 'remove');
+            this.updateElementClass(this.elements.playersContainer, 'disappear', 'add');
             this.updateElementClass(this.elements.player0NameDisplay, 'player-highlighted', 'remove');
             this.updateElementClass(this.elements.player1NameDisplay, 'player-highlighted', 'remove');
             this.updateElementClass(this.elements.diceImage, 'hidden', 'add');
-            this.updateElementClass(this.elements.winMessage, 'disapper', 'add');
+            this.updateElementClass(this.elements.winMessage, 'disappear', 'add');
 
             // Reset score displays
             this.updateScoreDisplay(0, 0);
@@ -148,9 +133,9 @@ const PigGame = {
             this.playerNames[1] = player1Name;
 
             // Update UI
-            this.updateElementClass(this.elements.setNamesButton, 'disapper', 'add');
-            this.updateElementClass(this.elements.playersContainer, 'disapper', 'remove');
-            this.updateElementClass(this.elements.diceButtonsRow, 'disapper', 'remove');
+            this.updateElementClass(this.elements.setNamesButton, 'disappear', 'add');
+            this.updateElementClass(this.elements.playersContainer, 'disappear', 'remove');
+            this.updateElementClass(this.elements.diceButtonsRow, 'disappear', 'remove');
 
             // Highlight current player
             const currentPlayerElement = document.querySelector(`.player--${this.currentPlayer}-name`);
@@ -230,15 +215,15 @@ const PigGame = {
             
             const winnerName = this.playerNames[this.currentPlayer] || `Player ${this.currentPlayer + 1}`;
             
-            this.updateElementClass(this.elements.diceImageContainer, 'disapper', 'add');
+            this.updateElementClass(this.elements.diceImageContainer, 'disappear', 'add');
             this.updateElementClass(this.elements.diceImage, 'hidden', 'add');
-            this.updateElementClass(this.elements.diceButtonsRow, 'disapper', 'add');
-            this.updateElementClass(this.elements.newGameButton, 'disapper', 'remove');
+            this.updateElementClass(this.elements.diceButtonsRow, 'disappear', 'add');
+            this.updateElementClass(this.elements.newGameButton, 'disappear', 'remove');
 
             // Display win message with sanitized player name
             if (this.elements.winMessage) {
                 this.elements.winMessage.textContent = `🏆 Congratulations, ${winnerName} won! 🏆`;
-                this.updateElementClass(this.elements.winMessage, 'disapper', 'remove');
+                this.updateElementClass(this.elements.winMessage, 'disappear', 'remove');
             }
 
         } catch (error) {
