@@ -34,7 +34,7 @@ This document contains all the prompts used during the development session of th
 
 ### Security Analysis and Code Quality Session (August 31, 2025)
 
-• claude mcp add --transport http Ref "https://api.ref.tools/mcp?apiKey=ref-464d10ea7aa89ed77d27"
+• claude mcp add --transport http Ref "https://api.ref.tools/mcp?apiKey=ref-xx"
 
 • claude mcp add semgrep uvx semgrep-mcp
 
