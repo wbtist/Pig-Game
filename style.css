@@ -205,7 +205,7 @@ aside {
 }
 
 .footer {
-  min-height: 100%;
+  padding: 8px 0;
   background-color: var(--dark-text-color);
   color: var(--main-background-color);
   font-size: 1rem;
