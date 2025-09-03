@@ -4,7 +4,12 @@
       "Bash(claude mcp add:*)",
       "Bash(claude mcp:*)",
       "Bash(uvx:*)",
-      "Bash(pkill:*)"
+      "Bash(pkill:*)",
+      "Bash(for file in \"React version/public/dice--\"*.png)",
+      "Bash(done)",
+      "Bash(npx --yes semgrep --config=auto --text .)",
+      "Bash(pip install:*)",
+      "Bash(semgrep:*)"
     ],
     "deny": [],
     "ask": []
