@@ -47,3 +47,29 @@ This document contains all the prompts used during the development session of th
 • The app with secured-script.js does not work, check all.
 
 • Update prompts-history.md with the relevant data
+
+### UI/UX Improvements and Bootstrap Removal Session (September 3, 2025)
+
+• The footer height is too muchch. Make it just a few pixels higher than the footer text. Evenly distributed on top and bottom.
+
+• You worked on the wrong .css file. Check the html code
+
+• Fix index.html
+
+• Take out bootstrap
+
+• Names field should be on one line, dice and hold buttons under the names, and the dice image in the third row.
+
+• Refactor the index.html. Take out the unnecessary DIV-s and implement css flexbox.
+
+• Make Feedback and Rules Section smae width to game rules
+
+• Player names should be next to each other
+
+• Highlight active player name with a bright transition color
+
+• Show player names above SCORE text
+
+• I mean saved player names
+
+• Update prompts-history.md

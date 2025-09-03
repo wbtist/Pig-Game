@@ -73,7 +73,7 @@ header {
   flex-direction: column;
   gap: 1rem;
   width: 100%;
-  max-width: 800px;
+  max-width: 80%;
 }
 
 .game-controls {
@@ -82,7 +82,7 @@ header {
   align-items: center;
   gap: 1.5rem;
   width: 100%;
-  max-width: 600px;
+  max-width: 80%;
 }
 
 .player-names {
@@ -90,7 +90,7 @@ header {
   gap: 1rem;
   width: 100%;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .dice-controls {
@@ -109,7 +109,7 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
   background: var(--card-background);
   border-radius: 20px;
   padding: 2rem;
@@ -117,6 +117,34 @@ header {
   box-shadow: 0 8px 32px var(--shadow-dark);
   max-width: 800px;
   width: 100%;
+}
+
+.player-names-display {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  gap: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.player-name-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.player-name-label h2 {
+  font-size: clamp(1.2rem, 3.5vw, 1.8rem);
+  color: var(--accent-cyan);
+  font-weight: 700;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.player-name-label h2.player-highlighted {
+  color: var(--accent-blue);
+  text-shadow: 0 0 12px rgba(20, 26, 33, 0.6);
+  transform: scale(1.05);
 }
 
 .score-display,
@@ -366,6 +394,16 @@ input:focus {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 4px 16px rgba(88, 166, 255, 0.4);
   font-weight: 600;
+}
+
+/* Active player name highlighting */
+input.playernames.player-highlighted {
+  background: var(--accent-cyan);
+  border-color: var(--accent-blue);
+  color: var(--main-background-color);
+  box-shadow: 0 0 0 3px rgba(65, 106, 56, 0.3), 0 4px 16px rgba(26, 123, 128, 0.4);
+  transform: scale(1.03);
+  font-weight: 700;
 }
 
 /* Winner message */

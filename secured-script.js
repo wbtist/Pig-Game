@@ -49,6 +49,8 @@ const dice_image = document.querySelector('.dice-image');
 let player_0_Name, player_1_Name;
 const player_0_Name_Display = document.querySelector('.player--0-name');
 const player_1_Name_Display = document.querySelector('.player--1-name');
+const player_0_Display_Name = document.querySelector('.player--0-display-name');
+const player_1_Display_Name = document.querySelector('.player--1-display-name');
 let playerNameArray = [];
 
 // Setting up game defaults - Enhanced with error handling
@@ -100,6 +102,8 @@ function switchPlayers() {
         currentPlayer = currentPlayer === 0 ? 1 : 0;
         if (player_0_Name_Display) player_0_Name_Display.classList.toggle('player-highlighted');
         if (player_1_Name_Display) player_1_Name_Display.classList.toggle('player-highlighted');
+        if (player_0_Display_Name) player_0_Display_Name.classList.toggle('player-highlighted');
+        if (player_1_Display_Name) player_1_Display_Name.classList.toggle('player-highlighted');
         toggleButtons();
     } catch (error) {
         console.error('Error switching players:', error);
@@ -150,6 +154,10 @@ if (setNames) {
             playerNameArray[0] = player0Name;
             playerNameArray[1] = player1Name;
             
+            // Update display names in scores section
+            if (player_0_Display_Name) player_0_Display_Name.textContent = player0Name;
+            if (player_1_Display_Name) player_1_Display_Name.textContent = player1Name;
+            
             if (setNames) setNames.classList.add('disapper');
             if (playersContainer) playersContainer.classList.remove('disapper');
             if (diceButtonsRow) diceButtonsRow.classList.remove('disapper');
@@ -157,6 +165,11 @@ if (setNames) {
             const currentPlayerElement = document.querySelector(`.player--${currentPlayer}-name`);
             if (currentPlayerElement) {
                 currentPlayerElement.classList.add('player-highlighted');
+            }
+            
+            const currentPlayerDisplayName = document.querySelector(`.player--${currentPlayer}-display-name`);
+            if (currentPlayerDisplayName) {
+                currentPlayerDisplayName.classList.add('player-highlighted');
             }
             
             toggleButtons();
